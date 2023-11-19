@@ -30,6 +30,8 @@ void rearrange(long long *arr, int n)
 
 // Q2. Pythagorean Triplet.
 
+
+
 // Q3. Rearrange an array with O(1) extra space.
 void arrange(long long arr[], int n)
 {
