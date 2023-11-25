@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <math.h>
 using namespace std;
 
 // Q1. Rearrange Array Alternately.
@@ -29,8 +30,35 @@ void rearrange(long long *arr, int n)
 }
 
 // Q2. Pythagorean Triplet.
+bool checkTriplet(int arr[], int n)
+{
+    // code here
+    vector<bool> a(1001, 0);
+    for (int i = 0; i < n; i++)
+    {
+        a[arr[i]] = true;
+    }
 
+    for (int i = 2; i < 1001; i++)
+    {
+        if (a[i])
+            for (int j = i + 1; j < 1001; j++)
+            {
+                if (a[j])
+                {
+                    int sum = i * i + j * j;
+                    int sqsum = sqrt(sum);
+                    int sum1 = sqsum * sqsum;
+                    if (sum == sum1 && a[sqsum])
+                    {
+                        return true;
+                    }
+                }
+            }
+    }
 
+    return false;
+}
 
 // Q3. Rearrange an array with O(1) extra space.
 void arrange(long long arr[], int n)
@@ -75,7 +103,6 @@ long long countTriplets(long long arr[], int n, long long sum)
 }
 
 // Q5. Boolean Matrix.
-
 
 // Q6. Row with max 1s.
 int rowWithMax1s(vector<vector<int>> arr, int n, int m)
